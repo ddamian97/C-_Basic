@@ -1,0 +1,55 @@
+using System;
+
+namespace _1.BinaryGap
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int tmp = Solution(529);
+            Console.WriteLine(tmp);
+
+            tmp = Solution(9);
+            Console.WriteLine(tmp);
+
+            tmp = Solution(20);
+            Console.WriteLine(tmp);
+
+
+            tmp = Solution(15);
+            Console.WriteLine(tmp);
+
+            tmp = Solution(32);
+            Console.WriteLine(tmp);
+
+        }
+
+        static int Solution(int N)
+        {
+            int bG = 0;
+
+            while (N % 2 == 0)
+            {
+                N /= 2;
+            }
+
+            for(int i=0; N>0; N /= 2)
+            {
+                if (N % 2 == 0)
+                {
+                    i++;
+                }
+                else
+                {
+                    if (i > bG)
+                    {
+                        bG = i;
+                        i = 0;
+
+                    }
+                }
+            }
+            return bG;
+        }
+    }
+}
